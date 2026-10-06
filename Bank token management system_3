@@ -1,0 +1,68 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> tokens;
+    int choice;
+    int tokenNumber = 1;
+
+    do {
+        cout << "\n===== BANK TOKEN SYSTEM =====\n";
+        cout << "1. Issue Token\n";
+        cout << "2. Display All Tokens\n";
+        cout << "3. Serve Customer\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+
+            case 1:
+                // Issue a new token
+                tokens.push(tokenNumber);
+                cout << "Token issued successfully: "
+                     << tokenNumber << endl;
+                tokenNumber++;
+                break;
+
+            case 2:
+                // Display all tokens
+                if (tokens.empty()) {
+                    cout << "No customers waiting.\n";
+                } else {
+                    queue<int> temp = tokens;
+
+                    cout << "Customers waiting:\n";
+
+                    while (!temp.empty()) {
+                        cout << "Token " << temp.front() << endl;
+                        temp.pop();
+                    }
+                }
+                break;
+
+            case 3:
+                // Serve customer
+                if (tokens.empty()) {
+                    cout << "No customer to serve.\n";
+                } else {
+                    cout << "Serving customer with Token "
+                         << tokens.front() << endl;
+
+                    tokens.pop();
+                }
+                break;
+
+            case 4:
+                cout << "Thank you! Bank token system closed.\n";
+                break;
+
+            default:
+                cout << "Invalid choice! Please try again.\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}

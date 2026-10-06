@@ -1,0 +1,29 @@
+// 1st (queue 
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> tokens;
+    int token;
+
+    // Store 5 customer token numbers
+    cout << "Enter 5 customer token numbers:\n";
+
+    for (int i = 0; i < 5; i++) {
+        cin >> token;
+        tokens.push(token);
+    }
+
+    // Serve customers in the same order
+    cout << "\nCustomers are being served:\n";
+
+    while (!tokens.empty()) {
+        cout << "Serving customer with token: "
+             << tokens.front() << endl;
+
+        tokens.pop();
+    }
+
+    return 0;
+}

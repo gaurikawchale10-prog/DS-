@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> cancelledOrders;
+    int orderNumber;
+
+    // Store 5 cancelled order numbers
+    cout << "Enter 5 cancelled order numbers:\n";
+
+    for (int i = 0; i < 5; i++) {
+        cin >> orderNumber;
+        cancelledOrders.push(orderNumber);
+    }
+
+    // Display cancelled orders
+    cout << "\nCancelled Orders (Most Recent First):\n";
+
+    while (!cancelledOrders.empty()) {
+        cout << cancelledOrders.top() << " ";
+        cancelledOrders.pop();
+    }
+
+    return 0;
+}
